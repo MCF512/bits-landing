@@ -1,0 +1,137 @@
+@import "@styles";
+
+.header {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    transition: background-color 0.5s;
+
+    &_colored {
+        background-color: $primary;
+    }
+}
+
+.links {
+    display: flex;
+
+    @media (max-width:800px) {
+        flex-direction: column;
+    }
+}
+
+.link {
+    color: $white;
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 10px;
+    font-size: 18px;
+
+    &:hover {
+        color: $secondary;
+    }
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.social_links {
+    display: flex;
+    gap: 5px;
+}
+
+.social_link {
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $purple-background;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s;
+
+    path {
+        // fill: $primary;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    transition: right 0.3s;
+
+    @media (max-width: 800px) {
+        position: absolute;
+        flex-direction: column;
+        top: 80px;
+        right: -50%;
+        max-width: 50%;
+        background-color: $primary;
+        padding: 10px;
+        height: calc(100vh - 80px);
+        overflow-y: scroll;
+
+        &_open {
+            right: 0;
+        }
+    }
+}
+
+.burger {
+    position: relative;
+    width: 25px;
+    height: 22px;
+    display: none;
+
+    @media (max-width: 800px) {
+        display: block;
+    }
+
+    span {
+        position: absolute;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: $purple-background;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: $purple-background;
+        left: 0;
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+    }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
