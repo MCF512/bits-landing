@@ -9,6 +9,8 @@ export default function Document() {
                 <link rel="icon" href='/favicon.ico' sizes="any" />
                 <link rel="canonical" href="https://bits-dance-studio.by" />
                 <meta name="google-site-verification" content="JS5ICxnjld9PhoMXXzl31slK1Yp_Q_9LPoMTAL18MZ0" />
+                <meta name="yandex-verification" content="76d87f9fbe2a1015" />
+                
                 <title>Студия танцев BIT`S – Уроки танцев в Речице для детей и взрослых</title>
                 <meta name="description" content="Обучение деток от 2,5 до 17 лет. Приглашаем ваших малышей в наш танцевальный мир, где гибкость и красота танца сочетаются с физическим развитием и формированием личности. Наши занятия проходят в удобное время, в комфортном зале, специально оборудованном для детей. Мы уделяем внимание дисциплине и готовим ребят к участию в республиканских и международных конкурсах. Подарите вашему ребенку возможность раскрыть свой потенциал и стать частью нашей дружной танцевальной семьи!  В студии проходят занятия для взрослых, где вы сможете раскрыть свою энергию и женственность! Наши тренировки помогут вам развить гибкость и пластичность, а также также подарят комфорт и удовольствие от каждого занятия. Присоединяйтесь и наслаждайтесь танцами" />
                 <meta name="keywords"
@@ -22,7 +24,7 @@ export default function Document() {
                 <meta property="og:url" content="https://bits-dance-studio.by" />
                 <meta property="og:type" content="website" />
 
-                <script async src="https://www.googletagmanager.com/gtag/js?id=G-9D0JPYYYXV"></script>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-9D0JPYYYXV"/>
                 <script dangerouslySetInnerHTML={{
                     __html: `window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
