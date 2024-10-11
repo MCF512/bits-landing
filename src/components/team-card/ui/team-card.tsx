@@ -1,11 +1,9 @@
 import React, { FC } from 'react'
 import styles from './team-card.module.scss'
-// import * as Dialog from '@radix-ui/react-dialog'
 import Image from 'next/image'
-import snezha from '@images/snezha.jpg'
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Mentor } from '@/types'
-
+import * as Portal from '@radix-ui/react-portal'
 interface TeamCardProps extends Mentor {
     // name: string
     // description: string
@@ -35,6 +33,15 @@ export const TeamCard: FC<TeamCardProps> = ({ name, surname, about, image }) => 
                         {about}
                     </DialogDescription>
                 </DialogContent>
+
+                <Portal.Root>
+                    <h3>
+                        {surname + ' ' + name}
+                    </h3>
+                    <p>
+                        {about}
+                    </p>
+                </Portal.Root>
             </Dialog>
         </div>
     )
