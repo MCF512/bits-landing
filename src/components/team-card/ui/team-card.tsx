@@ -34,7 +34,7 @@ export const TeamCard: FC<TeamCardProps> = ({ name, surname, about, image }) => 
                     </DialogDescription>
                 </DialogContent>
 
-                <Portal.Root>
+                <Portal.Root className='invisible absolute top-0 left-[-2000px]'>
                     <h3>
                         {surname + ' ' + name}
                     </h3>

@@ -24,7 +24,7 @@ export const DirectionItem: FC<DirectionItemProps> = ({ image, name, description
         {description}
       </DialogContent>
 
-      <Portal.Root>
+      <Portal.Root className='invisible absolute top-0 left-[-2000px]'>
         <h2>
           {name}
         </h2>
