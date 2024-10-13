@@ -2,8 +2,8 @@ module.exports = {
     apps: [
       {
         name: 'bits-landing',
-        script: 'next',
-        args: 'start',
+        script: 'npm',
+        args: 'start -p 4000',
         exec_mode: 'cluster',
         instances: 'max'
       }
