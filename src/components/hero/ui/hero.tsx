@@ -6,12 +6,12 @@ import { Autoplay, Pagination } from 'swiper/modules'
 import slideOneLogo from '@images/slide-one-logo.png'
 import { useResize } from '@/utils/useResize'
 import { classNames } from '@/utils/classNames'
+import firstSlideBgImage from '@images/slide-one.jpg'
+import firstSlideBgImageMobile from '@images/slide-one-mobile.jpg'
+import secondSlideBgImage from '@images/slide-two.jpg'
+import thirdSlideBgImage from '@images/slide-three.jpg'
 
-interface HeroProps {
-
-}
-
-export const Hero: FC<HeroProps> = ({ }) => {
+export const Hero: FC = () => {
   const sizes = useResize();
   const isMobile = (sizes?.width ?? 0) < 801
   return (
@@ -26,49 +26,80 @@ export const Hero: FC<HeroProps> = ({ }) => {
         onAutoplayTimeLeft={() => { }}
       >
         <SwiperSlide className={styles.slide}>
-          <div className={classNames(styles.slide_image, { [styles.slide_one_image]: true })}></div>
-          <Image
-            width={0}
-            height={0}
-            // sizes="100vw"
-            alt=''
-            src={slideOneLogo}
-            className={styles.image_logo}
-          />
+          <div className={styles.slide_wrapper}>
+
+            <Image
+              src={isMobile ? firstSlideBgImageMobile : firstSlideBgImage}
+              alt='Студия танцев BIT`s'
+              className={styles.slide_bg}
+              fill={true}
+              objectFit='cover'
+              objectPosition='center center'
+              loading="lazy"
+            />
+            <Image
+              width={0}
+              height={0}
+              alt='Лого студии'
+              src={slideOneLogo}
+              className={styles.image_logo}
+            />
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className={classNames(styles.slide_image, { [styles.slide_two_image]: true })}></div>
+          <div className={styles.slide_wrapper}>
+            <Image
+              src={secondSlideBgImage}
+              alt='Студия танцев BIT`s'
+              className={styles.slide_bg}
+              fill={true}
+              objectFit='cover'
+              objectPosition='center center'
+              loading="lazy"
+            />
 
-          <div className={classNames(styles.info, { [styles.info_two]: true })}>
-            <div className={styles.group}>
-              Baby Dance <span>от 2,5 лет</span>
-            </div>
-            <div className={styles.group}>
-              Kids Show <span>от 4 лет</span>
-            </div>
-            <div className={styles.group}>
-              K-pop <span>от 9 лет</span>
-            </div>
-            <div className={styles.group}>
-              Lady Dance <span>от 17 лет</span>
+            <div className={classNames(styles.info, { [styles.info_two]: true })}>
+              <div className={styles.group}>
+                Baby Dance <span>от 2,5 лет</span>
+              </div>
+              <div className={styles.group}>
+                Kids Show <span>от 4 лет</span>
+              </div>
+              <div className={styles.group}>
+                K-pop <span>от 9 лет</span>
+              </div>
+              <div className={styles.group}>
+                Lady Dance <span>от 17 лет</span>
+              </div>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className={classNames(styles.slide_image, { [styles.slide_three_image]: true })}></div>
+          <div className={styles.slide_wrapper}>
 
-          <div className={classNames(styles.info, { [styles.info_three]: true })}>
-            <div className={styles.group}>
-              Street dance <span>от 8 лет</span>
-            </div>
-            <div className={styles.group}>
-              Kids Plastic <span>от 6 лет</span>
-            </div>
-            <div className={styles.group}>
-              Flow Art <span>от 6 лет</span>
-            </div>
-            <div className={styles.group}>
-              Stretching <span>от 16 лет</span>
+            <Image
+              src={thirdSlideBgImage}
+              alt='Студия танцев BIT`s'
+              className={styles.slide_bg}
+              fill={true}
+              objectFit='cover'
+              objectPosition='center center'
+              loading="lazy"
+            />
+
+            <div className={classNames(styles.info, { [styles.info_three]: true })}>
+              <div className={styles.group}>
+                Street dance <span>от 8 лет</span>
+              </div>
+              <div className={styles.group}>
+                Kids Plastic <span>от 6 лет</span>
+              </div>
+              <div className={styles.group}>
+                Flow Art <span>от 6 лет</span>
+              </div>
+              <div className={styles.group}>
+                Stretching <span>от 16 лет</span>
+              </div>
             </div>
           </div>
         </SwiperSlide>

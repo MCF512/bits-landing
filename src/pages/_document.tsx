@@ -31,7 +31,7 @@ export default function Document() {
                 <meta property="og:type" content="website" />
 
                 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9D0JPYYYXV" />
-                <script dangerouslySetInnerHTML={{
+                <script async dangerouslySetInnerHTML={{
                     __html: `window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
@@ -39,7 +39,7 @@ export default function Document() {
                     gtag('config', 'G-9D0JPYYYXV');`}}>
                 </script>
 
-                <script type="text/javascript" dangerouslySetInnerHTML={{
+                <script async type="text/javascript" dangerouslySetInnerHTML={{
                     __html: `
                     (function(m,e,t,r,i,k,a){m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
                     m[i].l=1*new Date();

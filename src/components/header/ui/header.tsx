@@ -32,16 +32,16 @@ export const Header: FC<HeaderProps> = ({ colored, menuOpen, toggleMenu }) => {
                         </div>
 
                         <div className={styles.social_links}>
-                            <Link className={styles.social_link} href={'https://www.instagram.com/bits_art_studio?igsh=a24zZnprb2hxczZv'} target='__blank'>
+                            <Link className={styles.social_link} href={'https://www.instagram.com/bits_art_studio?igsh=a24zZnprb2hxczZv'} target='__blank' aria-label='Instagram'>
                                 <Instagram />
                             </Link>
-                            <Link className={styles.social_link} href={'https://vk.com/bitsdancestudio'} target='__blank'>
+                            <Link className={styles.social_link} href={'https://vk.com/bitsdancestudio'} target='__blank' aria-label='VK'>
                                 <VK />
                             </Link>
                         </div>
                     </div>
 
-                    <button onClick={toggleMenu} className={classNames(styles.burger, { [styles.burger_open]: menuOpen })}>
+                    <button aria-label='Открыть меню' onClick={toggleMenu} className={classNames(styles.burger, { [styles.burger_open]: menuOpen })}>
                         <span></span>
                     </button>
                 </div>

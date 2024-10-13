@@ -2,23 +2,23 @@
 
 .wrapper {
     padding-top: 40px;
+    padding-bottom: 10px;
     color: $white;
-    height: 100vh;
-
-    background-image: url('../../../../public/images/about-bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    min-height: 100vh;
+    position: relative;
 }
 
 .title {
     @include title;
     padding-top: 40px;
+    position: relative;
 }
 
 .subtitle {
     font-size: 36px;
     margin-bottom: 20%;
     margin-top: 60px;
+    position: relative;
 }
 
 .goal {
@@ -55,9 +55,6 @@
 .text {
     max-width: 50%;
     font-size: 20px;
-    // background-color: black;
-    // padding: 20px;
-    // border-radius: 15px;
 
     @media (max-width: 600px) {
       max-width: 100%;  

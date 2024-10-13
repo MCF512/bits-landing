@@ -13,9 +13,9 @@ interface DirectionItemProps {
 export const DirectionItem: FC<DirectionItemProps> = ({ image, name, description }) => {
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger aria-label={name}>
         <div className={styles.card}>
-          <Image className={styles.image} src={image} alt='' />
+          <Image className={styles.image} src={image} alt='' loading='lazy' />
           {/* <div className={styles.name}>{name}</div> */}
         </div>
       </DialogTrigger>

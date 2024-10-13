@@ -68,13 +68,15 @@
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 20px;
     width: 100%;
     transition: right 0.3s;
 
     @media (max-width: 800px) {
         position: absolute;
         flex-direction: column;
+        justify-content: space-between;
         top: 80px;
         right: -50%;
         max-width: 50%;
