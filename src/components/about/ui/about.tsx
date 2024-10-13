@@ -1,13 +1,13 @@
 import React, { FC } from 'react'
 import styles from './about.module.scss'
 import Image from 'next/image'
-import aboutImage from '@images/about-bg.png'
+import aboutImage from '@images/about-bg.webp'
 
 interface AboutProps {
 
 }
 
-export const About: FC<AboutProps> = ({ }) => {
+const About: FC<AboutProps> = ({ }) => {
     return (
         <section id='about' className={styles.wrapper}>
             <Image
@@ -34,3 +34,5 @@ export const About: FC<AboutProps> = ({ }) => {
         </section>
     )
 }
+
+export default About

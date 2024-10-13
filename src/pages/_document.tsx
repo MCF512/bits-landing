@@ -5,7 +5,6 @@ export default function Document() {
         <Html lang="ru">
             <Head>
                 <meta charSet="UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <link rel="icon" href='/favicon.ico' sizes="any" />
                 <link rel="canonical" href="https://bits-dance-studio.by" />
                 <meta name="google-site-verification" content="JS5ICxnjld9PhoMXXzl31slK1Yp_Q_9LPoMTAL18MZ0" />

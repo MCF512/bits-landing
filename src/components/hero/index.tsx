@@ -1,1 +1,3 @@
-export {Hero} from './ui/hero'
+import Hero from "./ui/hero";
+
+export default Hero

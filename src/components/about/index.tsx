@@ -1,1 +1,3 @@
-export {About} from './ui/about'
+import About  from './ui/about'
+
+export default About

@@ -1,1 +1,3 @@
-export {Contacts} from './ui/contacts'
+import Contacts from "./ui/contacts";
+
+export default Contacts

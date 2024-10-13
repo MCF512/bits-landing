@@ -4,11 +4,7 @@ import Link from 'next/link'
 import Instagram from '@icons/instagram.svg'
 import VK from '@icons/vk.svg'
 
-interface ContactsProps {
-
-}
-
-export const Contacts: FC<ContactsProps> = ({ }) => {
+const Contacts: FC = ({ }) => {
     return (
         <section id='contacts' className='container'>
             <h2 className={styles.title}>Контакты</h2>
@@ -22,10 +18,10 @@ export const Contacts: FC<ContactsProps> = ({ }) => {
                     <a className={styles.link} href='tel:+375 (29) 319-74-52' aria-label='Номер телефона'>+375 (29) 319-74-52</a>
 
                     <div className='flex items-center gap-2'>
-                        <Link className={styles.social_link} href={'https://www.instagram.com/bits_art_studio?igsh=a24zZnprb2hxczZv'} target='__blank'>
+                        <Link className={styles.social_link} href={'https://www.instagram.com/bits_art_studio?igsh=a24zZnprb2hxczZv'} target='__blank' aria-label='Instagram'>
                             <Instagram />
                         </Link>
-                        <Link className={styles.social_link} href={'https://vk.com/bitsdancestudio'} target='__blank'>
+                        <Link className={styles.social_link} href={'https://vk.com/bitsdancestudio'} target='__blank' aria-label='VK'>
                             <VK />
                         </Link>
                     </div>
@@ -38,3 +34,5 @@ export const Contacts: FC<ContactsProps> = ({ }) => {
         </section>
     )
 }
+
+export default Contacts

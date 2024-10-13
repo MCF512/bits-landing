@@ -12,7 +12,7 @@ interface TeamCardProps extends Mentor {
 
 export const TeamCard: FC<TeamCardProps> = ({ name, surname, about, image }) => {
     return (
-        <div>
+        <li>
             <Dialog>
                 <DialogTrigger className={styles.trigger}>
 
@@ -43,6 +43,6 @@ export const TeamCard: FC<TeamCardProps> = ({ name, surname, about, image }) => 
                     </p>
                 </Portal.Root>
             </Dialog>
-        </div>
+        </li>
     )
 }

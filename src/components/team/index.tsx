@@ -1,1 +1,3 @@
-export {Team} from './ui/team'
+import Team from "./ui/team";
+
+export default Team

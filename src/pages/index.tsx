@@ -1,11 +1,14 @@
-import { Hero } from "@/components/hero";
+import dynamic from 'next/dynamic';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { About } from "@/components/about";
-import { Team } from "@/components/team";
-import { Directions } from "@/components/directions/ui/directions";
-import { Contacts } from "@/components/contacts";
+
+const Hero = dynamic(() => import('@/components/hero'), {ssr: false})
+const About = dynamic(() => import('@/components/about'), {ssr: false})
+const Team = dynamic(() => import('@/components/team'), {ssr: false})
+const Directions = dynamic(() => import('@/components/directions'), {ssr: false})
+const Contacts = dynamic(() => import('@/components/contacts'), {ssr: false})
+
 export default function Home() {
 
     return (

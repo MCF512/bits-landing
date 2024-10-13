@@ -2,8 +2,8 @@ import React, { FC } from 'react'
 import styles from './team.module.scss'
 import { TeamCard } from '@/components/team-card'
 import { Mentor } from '@/types'
-import snezha from '@images/snezha.jpg'
-import lisan from '@images/lisan.jpeg'
+import snezha from '@images/snezha.webp'
+import lisan from '@images/lisan.webp'
 
 interface TeamProps {
 
@@ -24,7 +24,7 @@ const mentors: Mentor[] = [
   }
 ]
 
-export const Team: FC<TeamProps> = ({ }) => {
+const Team: FC<TeamProps> = ({ }) => {
   return (
     <section id='team' className={styles.wrapper}>
       <div className='container'>
@@ -41,3 +41,5 @@ export const Team: FC<TeamProps> = ({ }) => {
     </section>
   )
 }
+
+export default Team

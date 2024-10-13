@@ -3,15 +3,15 @@ import styles from './hero.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
 import { Autoplay, Pagination } from 'swiper/modules'
-import slideOneLogo from '@images/slide-one-logo.png'
+import slideOneLogo from '@images/slide-one-logo.webp'
 import { useResize } from '@/utils/useResize'
 import { classNames } from '@/utils/classNames'
-import firstSlideBgImage from '@images/slide-one.jpg'
-import firstSlideBgImageMobile from '@images/slide-one-mobile.jpg'
-import secondSlideBgImage from '@images/slide-two.jpg'
-import thirdSlideBgImage from '@images/slide-three.jpg'
+import firstSlideBgImage from '@images/slide-one.webp'
+import firstSlideBgImageMobile from '@images/slide-one-mobile.webp'
+import secondSlideBgImage from '@images/slide-two.webp'
+import thirdSlideBgImage from '@images/slide-three.webp'
 
-export const Hero: FC = () => {
+const Hero: FC = () => {
   const sizes = useResize();
   const isMobile = (sizes?.width ?? 0) < 801
   return (
@@ -35,7 +35,7 @@ export const Hero: FC = () => {
               fill={true}
               objectFit='cover'
               objectPosition='center center'
-              loading="lazy"
+              priority
             />
             <Image
               width={0}
@@ -111,3 +111,5 @@ export const Hero: FC = () => {
     </div>
   )
 }
+
+export default Hero;

@@ -1,17 +1,17 @@
 import React, { FC } from 'react'
 import styles from './directions.module.scss'
 import { DirectionItem } from '@/components/direction-item'
-import soloDance from '@images/solo.jpeg'
-import streetDance from '@images/street-dance.jpeg'
-import stretch from '@images/stretch.jpeg'
-import plastic from '@images/plactic.jpeg'
-import kpop from '@images/kpop.jpeg'
-import kids from '@images/kids-dance.jpeg'
-import baby from '@images/baby-dance.jpeg'
-import fire from '@images/fire.jpeg'
-import lady from '@images/lady.jpeg'
-import flowArt from '@images/flow-art.jpeg'
-import latina from '@images/latina.jpeg'
+import soloDance from '@images/solo.webp'
+import streetDance from '@images/street-dance.webp'
+import stretch from '@images/stretch.webp'
+import plastic from '@images/plactic.webp'
+import kpop from '@images/kpop.webp'
+import kids from '@images/kids-dance.webp'
+import baby from '@images/baby-dance.webp'
+import fire from '@images/fire.webp'
+import lady from '@images/lady.webp'
+import flowArt from '@images/flow-art.webp'
+import latina from '@images/latina.webp'
 
 const directionsArray = [
     {
@@ -76,7 +76,7 @@ interface DirectionsProps {
 
 }
 
-export const Directions: FC<DirectionsProps> = ({ }) => {
+const Directions: FC<DirectionsProps> = ({ }) => {
     return (
         <section id='directions' className={styles.wrapper}>
             <div className='container'>
@@ -91,3 +91,5 @@ export const Directions: FC<DirectionsProps> = ({ }) => {
         </section>
     )
 }
+
+export default Directions

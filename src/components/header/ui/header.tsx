@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from 'react'
 import styles from './header.module.scss'
-import logo from '@images/bits-logo.png'
+import logo from '@images/bits-logo.webp'
 import Image from 'next/image'
 import { routes } from '@/utils/routes'
 import Link from 'next/link'
@@ -22,7 +22,7 @@ export const Header: FC<HeaderProps> = ({ colored, menuOpen, toggleMenu }) => {
         <header className={classNames(styles.header, { [styles.header_colored]: colored || menuOpen })}>
             <div className={classNames('container', {}, [styles.container])}>
                 <div className={styles.wrapper}>
-                    <Image src={logo} width={80} height={80} alt='logo' />
+                    <Image src={logo} width={80} height={80} alt='logo' loading='lazy' />
 
                     <div className={classNames(styles.navbar, { [styles.navbar_open]: menuOpen })}>
                         <div className={styles.links}>
