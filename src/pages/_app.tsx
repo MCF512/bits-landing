@@ -5,6 +5,7 @@ import '../styles/globals.css'
 import '@styles'
 
 import { Roboto_Flex } from 'next/font/google'
+import Head from "next/head";
 
 const roboto = Roboto_Flex({ weight: 'variable', subsets: ['latin'], axes: ["wdth", "opsz", "GRAD", "slnt", "XTRA", "XOPQ", "YOPQ", "YTLC", "YTUC", "YTAS", "YTDE", "YTFI"], variable: '--roboto-font' })
 
@@ -18,11 +19,16 @@ interface AppProps {
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
     return (
-        <div className={roboto.className}>
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
-        </div>
+        <>
+            <Head>
+                <title>Студия танцев BIT`S – Уроки танцев в Речице для детей и взрослых</title>
+            </Head>
+            <div className={roboto.className}>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </div>
+        </>
     )
 }
 
