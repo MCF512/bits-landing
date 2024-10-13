@@ -28,15 +28,15 @@ export default function Document() {
                 <meta property="og:url" content="https://bits-dance-studio.by" />
                 <meta property="og:type" content="website" />
 
-                <Script async id='google-tag-manager' src="https://www.googletagmanager.com/gtag/js?id=G-9D0JPYYYXV" />
-                <Script async id='google-something' dangerouslySetInnerHTML={{
+                <Script strategy='lazyOnload' id='google-tag-manager' src="https://www.googletagmanager.com/gtag/js?id=G-9D0JPYYYXV" />
+                <Script strategy='lazyOnload' id='google-something' dangerouslySetInnerHTML={{
                     __html: `window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
 
                     gtag('config', 'G-9D0JPYYYXV');`}} />
 
-                <Script async id='yandex-metrica-script' type="text/javascript" dangerouslySetInnerHTML={{
+                <Script strategy='lazyOnload' id='yandex-metrica-script' type="text/javascript" dangerouslySetInnerHTML={{
                     __html: `
                     (function(m,e,t,r,i,k,a){m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
                     m[i].l=1*new Date();
