@@ -3,6 +3,7 @@ import styles from './contacts.module.scss'
 import Link from 'next/link'
 import Instagram from '@icons/instagram.svg'
 import VK from '@icons/vk.svg'
+import Image from 'next/image'
 
 const Contacts: FC = ({ }) => {
     return (
@@ -28,7 +29,15 @@ const Contacts: FC = ({ }) => {
                 </div>
 
                 <div className={styles.map_wrapper}>
-                    <iframe title='Карта' className={styles.map} src="https://yandex.ru/map-widget/v1/?um=constructor%3A7028971efdb1fdca7c592a80f74387d01190c079f40097a69c070b26acd81dac&amp;source=constructor" width="650" height="400" frameBorder="0"></iframe>
+                    <a aria-label='Карта' href="https://yandex.ru/maps/?um=constructor%3A7028971efdb1fdca7c592a80f74387d01190c079f40097a69c070b26acd81dac&amp;source=constructorStatic" target="_blank">
+                        <Image
+                            className={styles.map} src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A7028971efdb1fdca7c592a80f74387d01190c079f40097a69c070b26acd81dac&amp;width=650&amp;height=400&amp;lang=ru_RU"
+                            alt="Карта"
+                            width={650}
+                            height={400}
+                        />
+                    </a>
+                    {/* <iframe title='Карта' className={styles.map} src="https://yandex.ru/map-widget/v1/?um=constructor%3A7028971efdb1fdca7c592a80f74387d01190c079f40097a69c070b26acd81dac&amp;source=constructor" width="650" height="400" frameBorder="0"></iframe> */}
                 </div>
             </div>
         </section>

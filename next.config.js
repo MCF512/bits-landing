@@ -16,6 +16,9 @@ module.exports = {
     EVENT_ID: process.env.EVENT_ID
   },
   images:{
-    unoptimized:true
+    unoptimized:true,
+    domains: [
+      "api-maps.yandex.ru"
+    ]
   }
 }
