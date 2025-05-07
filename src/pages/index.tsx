@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Suspense } from 'react';
 
 const Hero = dynamic(() => import('@/components/hero'), { ssr: false })
 const About = dynamic(() => import('@/components/about'), { ssr: false })
