@@ -1,51 +1,140 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
-import styles from './header.module.scss'
-import logo from '@images/bits-logo.webp'
-import Image from 'next/image'
-import { routes } from '@/utils/routes'
-import Link from 'next/link'
-import Instagram from '@icons/instagram.svg'
-import VK from '@icons/vk.svg'
-import { classNames } from '@/utils/classNames'
-
+import React, { FC } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { routes } from "@/utils/routes";
+import { classNames } from "@/utils/classNames";
+import { Button, GradientText } from "@/shared";
+import styles from "./header.module.scss";
 
 interface HeaderProps {
-    colored: boolean
-    menuOpen: boolean
-    toggleMenu: () => void
+  colored: boolean;
+  menuOpen: boolean;
+  toggleMenu: () => void;
 }
+
+const SOCIALS = [
+  {
+    label: "IG",
+    href: "https://www.instagram.com/bits_art_studio?igsh=a24zZnprb2hxczZv",
+    name: "Instagram",
+  },
+  {
+    label: "VK",
+    href: "https://vk.com/bitsdancestudio",
+    name: "VK",
+  },
+];
 
 export const Header: FC<HeaderProps> = ({ colored, menuOpen, toggleMenu }) => {
-    // const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
-    return (
-        <header className={classNames(styles.header, { [styles.header_colored]: colored || menuOpen })}>
-            <div className={classNames('container', {}, [styles.container])}>
-                <div className={styles.wrapper}>
-                    <Image src={logo} width={80} height={80} alt='logo' loading='lazy' />
+  const closeAndNavigate = () => {
+    if (menuOpen) toggleMenu();
+  };
 
-                    <div className={classNames(styles.navbar, { [styles.navbar_open]: menuOpen })}>
-                        <div className={styles.links}>
-                            {routes.map(({ name, route, id }) => {
-                                return <Link onClick={toggleMenu} className={styles.link} key={id} href={route}>{name}</Link>
-                            })}
-                        </div>
+  const goTo = (path: string) => {
+    closeAndNavigate();
+    void router.push(path);
+  };
 
-                        <div className={styles.social_links}>
-                            <Link className={styles.social_link} href={'https://www.instagram.com/bits_art_studio?igsh=a24zZnprb2hxczZv'} target='__blank' aria-label='Instagram'>
-                                <Instagram />
-                            </Link>
-                            <Link className={styles.social_link} href={'https://vk.com/bitsdancestudio'} target='__blank' aria-label='VK'>
-                                <VK />
-                            </Link>
-                        </div>
-                    </div>
+  return (
+    <>
+      <header
+        className={classNames(styles.header, {
+          [styles.header_scrolled]: colored,
+        })}
+      >
+        <div className={styles.inner}>
+          <Link href="/#hero" className={styles.logo} onClick={closeAndNavigate}>
+            <span className={styles.logoMark}>B</span>
+            <span className={styles.logoText}>
+              <GradientText gradient="chrome" className={styles.logoTitle}>
+                BIT&apos;S
+              </GradientText>
+              <span className={styles.logoSubtitle}>DANCE STUDIO</span>
+            </span>
+          </Link>
 
-                    <button aria-label='Открыть меню' onClick={toggleMenu} className={classNames(styles.burger, { [styles.burger_open]: menuOpen })}>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </header>
-    )
-}
+          <nav className={styles.nav} aria-label="Основная навигация">
+            {routes.map(({ id, name, route }) => (
+              <Link key={id} href={route} className={styles.navLink}>
+                {name}
+              </Link>
+            ))}
+
+            {SOCIALS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.social}
+                aria-label={s.name}
+              >
+                {s.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className={styles.actions}>
+            <Button
+              size="sm"
+              className={styles.ctaDesktop}
+              onClick={() => goTo("/#contacts")}
+            >
+              Записаться
+            </Button>
+
+            <button
+              type="button"
+              aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
+              aria-expanded={menuOpen}
+              onClick={toggleMenu}
+              className={classNames(styles.burger, {
+                [styles.burger_open]: menuOpen,
+              })}
+            >
+              {menuOpen ? "✕" : "☰"}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div
+        className={classNames(styles.mobileMenu, {
+          [styles.mobileMenu_open]: menuOpen,
+        })}
+        aria-hidden={!menuOpen}
+      >
+        {routes.map(({ id, name, route }) => (
+          <Link
+            key={id}
+            href={route}
+            className={styles.mobileLink}
+            onClick={closeAndNavigate}
+          >
+            <GradientText gradient="chrome">{name}</GradientText>
+          </Link>
+        ))}
+
+        <div className={styles.mobileSocials}>
+          {SOCIALS.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noreferrer"
+              className={styles.mobileSocial}
+            >
+              {s.name}
+            </a>
+          ))}
+        </div>
+
+        <Button size="lg" onClick={() => goTo("/#contacts")}>
+          Записаться
+        </Button>
+      </div>
+    </>
+  );
+};

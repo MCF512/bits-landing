@@ -1,66 +1,183 @@
-@import '@styles';
+@import "../../../shared/styles/tokens.scss";
 
-.wrapper {
-    padding-top: 40px;
-    padding-bottom: 10px;
-    color: $white;
-    min-height: 100vh;
-    position: relative;
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 100px 40px;
+
+  @media (max-width: 800px) {
+    padding: 72px 20px;
+  }
+}
+
+.inner {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.copy {
+  min-width: 0;
 }
 
 .title {
-    @include title;
-    padding-top: 40px;
-    position: relative;
+  font-family: $uk-font-cond;
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 0.92;
+  margin: 0 0 28px;
+  text-transform: uppercase;
+
+  @media (max-width: 800px) {
+    font-size: 44px;
+  }
 }
 
-.subtitle {
-    font-size: 36px;
-    margin-bottom: 20%;
-    margin-top: 60px;
-    position: relative;
-}
-
-.goal {
-    font-size: 26px;
-    font-weight: 500;
-    letter-spacing: 10px;
-}
-
-.flex {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    padding-top: 64px;
-    position: relative;
-
-    &::before {
-        position: absolute;
-        content: '';
-        height: 5px;
-        width: 100%;
-        background-color: $primary;
-        top: 0;
-        left: 0;
-        border-radius: 2px;
-    }
-
-    @media (max-width: 600px) {
-        flex-direction: column;
-        align-items: center;
-
-    }
+.titleAccent {
+  color: $uk-lime;
 }
 
 .text {
-    max-width: 50%;
-    font-size: 20px;
-
-    @media (max-width: 600px) {
-      max-width: 100%;  
-    }
+  font-family: $uk-font-body;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 36px;
 }
 
-.image {
-    border-radius: 20px;
+.advantages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid $uk-rule;
+}
+
+.advantage {
+  border-top: 1px solid $uk-rule;
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 4px 1fr;
+  gap: 20px;
+}
+
+.advantageBar {
+  width: 4px;
+  height: 100%;
+  min-height: 40px;
+  border-radius: 2px;
+  background-image: uk-lm();
+}
+
+.advantage[data-gradient="mc"] .advantageBar {
+  background-image: uk-mc();
+}
+
+.advantage[data-gradient="cl"] .advantageBar {
+  background-image: uk-cl();
+}
+
+.advantageTitle {
+  display: block;
+  font-family: $uk-font-cond;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.advantageText {
+  font-family: $uk-font-body;
+  font-size: 14px;
+  font-weight: 300;
+  color: $uk-dim;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.media {
+  position: relative;
+}
+
+.photo {
+  position: relative;
+  border-radius: $uk-radius-soft;
+  overflow: hidden;
+  background-color: #050505;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  height: 480px;
+
+  @media (max-width: 800px) {
+    height: 280px;
+  }
+}
+
+.photoImage {
+  object-fit: cover;
+  filter: grayscale(80%) contrast(1.2) brightness(0.8);
+}
+
+.photoTint {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.1) 0%,
+    rgba(224, 64, 251, 0.06) 100%
+  );
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.stat {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  @include uk-glass(rgba(22, 22, 22, 0.95), rgba(168, 85, 247, 0.3));
+  border-radius: $uk-radius-soft;
+  padding: 18px 24px;
+  animation: aboutFadeIn 0.8s ease;
+
+  @media (max-width: 800px) {
+    left: 12px;
+    bottom: -16px;
+  }
+}
+
+.statValue {
+  display: block;
+  font-family: $uk-font-cond;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.statLabel {
+  display: block;
+  font-family: $uk-font-body;
+  font-size: 12px;
+  color: $uk-dim;
+  margin-top: 4px;
+}
+
+@keyframes aboutFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

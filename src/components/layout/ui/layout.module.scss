@@ -1,38 +1,46 @@
-@import "@styles";
+@import "../../../shared/styles/tokens.scss";
 
 .layout {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-between;
-    position: relative;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    background-color: $layout-background;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: $uk-bg;
+  color: $uk-white;
 
-    &::after {
-        background-color: transparent;
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse 55% 35% at 10% 10%,
+        rgba(168, 85, 247, 0.06) 0%,
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 45% 30% at 90% 80%,
+        rgba(224, 64, 251, 0.08) 0%,
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 40% 25% at 55% 50%,
+        rgba(0, 229, 255, 0.04) 0%,
+        transparent 70%
+      );
+  }
 
-        transition: background-color 0.3s;
-    }
-
-    &[data-open=true] {
-        overflow-y: hidden;
-
-        // &::after {
-        //     background-color: $primary;
-        //     z-index: 10;
-        //     height: 100%;
-        //     width: 100%;
-        //     left: 0;
-        //     bottom: 0;
-        //     opacity: 0.6;
-        //     position: absolute;
-        //     content: '';
-        // }
-    }
+  &[data-open="true"] {
+    overflow-y: hidden;
+  }
 }
 
 .main {
-    flex-grow: 1;
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
 }

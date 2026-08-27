@@ -1,0 +1,172 @@
+@import "../../../shared/styles/tokens.scss";
+
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 100px 40px;
+
+  @media (max-width: 800px) {
+    padding: 64px 20px;
+  }
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: $uk-font-cond;
+  font-weight: 900;
+  font-size: 80px;
+  line-height: 0.9;
+  text-transform: uppercase;
+  margin: 0 0 40px;
+
+  @media (max-width: 800px) {
+    font-size: 48px;
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.tab {
+  font-family: $uk-font-cond;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 10px 24px;
+  border-radius: $uk-radius-soft;
+  border: 1px solid $uk-rule;
+  background-color: transparent;
+  color: $uk-dim;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $uk-lime;
+    color: $uk-white;
+  }
+
+  &_active {
+    border-color: $uk-lime;
+    background-color: $uk-lime;
+    color: $uk-white;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.row {
+  @include uk-glass();
+  border-radius: $uk-radius-soft;
+  display: grid;
+  grid-template-columns: 100px 1fr 180px 100px 140px;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 28px;
+  animation: scheduleFadeIn 0.3s ease both;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+}
+
+.time {
+  font-family: $uk-font-cond;
+  font-weight: 900;
+  font-size: 26px;
+
+  @media (max-width: 900px) {
+    font-size: 20px;
+  }
+}
+
+.name {
+  font-family: $uk-font-cond;
+  font-weight: 700;
+  font-size: 22px;
+  color: $uk-white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  @media (max-width: 900px) {
+    font-size: 18px;
+  }
+}
+
+.teacher {
+  font-family: $uk-font-body;
+  font-size: 14px;
+  color: $uk-dim;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.who {
+  font-family: $uk-font-body;
+  font-size: 12px;
+  color: $uk-lime;
+  border: 1px solid $uk-lime;
+  border-radius: $uk-radius-chip;
+  padding: 3px 10px;
+  justify-self: start;
+  height: fit-content;
+  white-space: nowrap;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.meta {
+  display: none;
+  font-family: $uk-font-body;
+  font-size: 13px;
+  color: $uk-dim;
+  grid-column: 2;
+
+  @media (max-width: 900px) {
+    display: block;
+  }
+}
+
+.cta {
+  justify-self: end;
+
+  @media (max-width: 900px) {
+    display: none !important;
+  }
+}
+
+.note {
+  margin-top: 24px;
+  font-family: $uk-font-body;
+  font-size: 13px;
+  color: $uk-dim2;
+}
+
+@keyframes scheduleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

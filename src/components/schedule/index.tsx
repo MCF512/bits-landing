@@ -1,1 +1,1 @@
-export {Schedule} from './ui/schedule'
+export { default } from "./ui/schedule";

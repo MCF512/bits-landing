@@ -1,0 +1,45 @@
+@import "../../styles/tokens.scss";
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: $uk-font-cond;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 4px 12px;
+  border-radius: $uk-radius-chip;
+  border: 1px solid $uk-rule;
+  color: $uk-dim;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tag_lm,
+.tag_mc,
+.tag_cl,
+.tag_holo,
+.tag_chrome {
+  border: none;
+  color: transparent;
+}
+
+.tag_lm {
+  @include uk-gradient-text(uk-lm());
+}
+
+.tag_mc {
+  @include uk-gradient-text(uk-mc());
+}
+
+.tag_cl {
+  @include uk-gradient-text(uk-cl());
+}
+
+.tag_holo {
+  @include uk-gradient-text(uk-holo());
+}
+
+.tag_chrome {
+  @include uk-gradient-text(uk-chrome());
+}

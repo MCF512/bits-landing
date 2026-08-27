@@ -1,37 +1,106 @@
-import React, { FC } from 'react'
-import styles from './direction-item.module.scss'
-import Image, { StaticImageData } from 'next/image'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-import * as Portal from '@radix-ui/react-portal'
+import React, { FC } from "react";
+import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/router";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button, GradientText } from "@/shared";
+import type { UkGradient } from "@/shared";
+import styles from "./direction-item.module.scss";
 
-interface DirectionItemProps {
-  image: string | StaticImageData
-  name: string
-  description: string
+export interface DirectionItemProps {
+  id: string;
+  title: string;
+  tag: string;
+  age?: string;
+  description: string;
+  image: string | StaticImageData;
+  gradient: UkGradient;
 }
 
-export const DirectionItem: FC<DirectionItemProps> = ({ image, name, description }) => {
+export const DirectionItem: FC<DirectionItemProps> = ({
+  title,
+  tag,
+  age,
+  description,
+  image,
+  gradient,
+}) => {
+  const router = useRouter();
+
   return (
     <Dialog>
-      <DialogTrigger aria-label={name}>
-        <div className={styles.card}>
-          <Image className={styles.image} src={image} alt='' loading='lazy' />
-          {/* <div className={styles.name}>{name}</div> */}
+      <DialogTrigger className={styles.trigger} aria-label={title}>
+        <div className={styles.card} data-gradient={gradient}>
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 800px) 50vw, 25vw"
+            className={styles.image}
+          />
+          <div className={styles.tint} aria-hidden />
+          <div className={styles.fade} aria-hidden />
+          <div className={styles.info}>
+            <GradientText gradient={gradient} className={styles.tag}>
+              {tag}
+            </GradientText>
+            <GradientText gradient="chrome" className={styles.title}>
+              {title}
+            </GradientText>
+            {age ? <span className={styles.age}>{age}</span> : null}
+          </div>
         </div>
       </DialogTrigger>
 
-      <DialogContent className='text-white'>
-        {description}
-      </DialogContent>
+      <DialogContent className={styles.modal} closeVisible={false}>
+        <div className={styles.modalHero}>
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="600px"
+            className={styles.modalImage}
+          />
+          <div
+            className={styles.modalTint}
+            data-gradient={gradient}
+            aria-hidden
+          />
+          <div className={styles.modalFade} aria-hidden />
+          <DialogClose className={styles.close} aria-label="Закрыть">
+            ✕
+          </DialogClose>
+        </div>
 
-      <Portal.Root className='invisible absolute top-0 left-[-2000px]'>
-        <h2>
-          {name}
-        </h2>
-        <p>
-          {description}
-        </p>
-      </Portal.Root>
+        <div className={styles.modalBody}>
+          <GradientText gradient={gradient} className={styles.tag}>
+            {tag}
+          </GradientText>
+          <DialogTitle className={styles.modalTitle}>
+            <GradientText gradient="chrome">{title}</GradientText>
+          </DialogTitle>
+          {age ? <p className={styles.modalAge}>{age}</p> : null}
+          <DialogDescription className={styles.modalDesc}>
+            {description}
+          </DialogDescription>
+          <div className={styles.modalActions}>
+            <Button size="lg" onClick={() => void router.push("/#contacts")}>
+              Записаться
+            </Button>
+            <DialogClose asChild>
+              <Button variant="secondary" size="lg">
+                Закрыть
+              </Button>
+            </DialogClose>
+          </div>
+        </div>
+      </DialogContent>
     </Dialog>
-  )
-}
+  );
+};
