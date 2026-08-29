@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import {
   Dialog,
   DialogContent,
@@ -9,7 +8,7 @@ import {
   DialogTrigger,
   DialogClose,
 } from "@/components/ui/dialog";
-import { Button, GradientText } from "@/shared";
+import { GradientText } from "@/shared";
 import { Mentor } from "@/types";
 import { classNames } from "@/utils/classNames";
 import styles from "./team-card.module.scss";
@@ -22,7 +21,6 @@ export const TeamCard: FC<Mentor> = ({
   dirs,
   gradient,
 }) => {
-  const router = useRouter();
   const initials = name
     .split(" ")
     .map((part) => part[0])
@@ -123,13 +121,6 @@ export const TeamCard: FC<Mentor> = ({
                 ))}
               </div>
             </div>
-
-            <Button
-              size="lg"
-              onClick={() => void router.push("/#contacts")}
-            >
-              Записаться
-            </Button>
           </div>
         </DialogContent>
       </Dialog>

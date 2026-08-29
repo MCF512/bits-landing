@@ -1,70 +1,63 @@
 import React, { FC, useState } from "react";
-import { useRouter } from "next/router";
-import { Button, GradientText, SectionLabel } from "@/shared";
+import { GradientText, SectionLabel } from "@/shared";
 import type { UkGradient } from "@/shared";
 import { classNames } from "@/utils/classNames";
 import styles from "./schedule.module.scss";
 
-const DAYS = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб"] as const;
+const DAYS = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"] as const;
 type Day = (typeof DAYS)[number];
 
 type Lesson = {
   time: string;
   name: string;
-  teacher: string;
   who: string;
   gradient: UkGradient;
 };
 
 const SCHEDULE: Record<Day, Lesson[]> = {
   Пн: [
-    { time: "09:00", name: "Baby Dance", teacher: "Снежана", who: "от 2,5 лет", gradient: "lm" },
-    { time: "10:00", name: "Kids Dance", teacher: "Снежана", who: "дети", gradient: "lm" },
-    { time: "15:30", name: "Street Dance", teacher: "Маргарита", who: "от 8 лет", gradient: "cl" },
-    { time: "17:00", name: "K-pop", teacher: "Лисан", who: "от 9 лет", gradient: "mc" },
-    { time: "18:30", name: "High Heels", teacher: "Лисан", who: "от 17 лет", gradient: "mc" },
-    { time: "19:45", name: "Jazz Funk / Dancehall", teacher: "Маргарита", who: "взрослые", gradient: "cl" },
+    { time: "17:30", name: "ЛФК", who: "дети", gradient: "lm" },
+    { time: "18:30", name: "ЛФК", who: "взрослые", gradient: "lm" },
   ],
   Вт: [
-    { time: "10:00", name: "Фитнес", teacher: "Валерия", who: "все", gradient: "lm" },
-    { time: "15:00", name: "Stretching", teacher: "Лисан", who: "от 16 лет", gradient: "mc" },
-    { time: "16:30", name: "Классика", teacher: "Снежана", who: "все уровни", gradient: "lm" },
-    { time: "18:00", name: "Vogue", teacher: "Лисан", who: "от 14 лет", gradient: "mc" },
-    { time: "19:30", name: "Twerk / Dancehall", teacher: "Снежана", who: "от 16 лет", gradient: "lm" },
+    { time: "16:00", name: "K-pop", who: "дети", gradient: "mc" },
+    { time: "18:00", name: "Kids Dance", who: "от 4,5 до 6,5 лет", gradient: "lm" },
+    { time: "18:00", name: "Lady Latina", who: "взрослые", gradient: "cl" },
+    { time: "19:00", name: "High Heels", who: "взрослые", gradient: "mc" },
   ],
   Ср: [
-    { time: "09:00", name: "Baby Dance", teacher: "Снежана", who: "от 2,5 лет", gradient: "lm" },
-    { time: "10:00", name: "ЛФК", teacher: "Валерия", who: "все", gradient: "lm" },
-    { time: "15:30", name: "Street Dance", teacher: "Маргарита", who: "от 8 лет", gradient: "cl" },
-    { time: "17:00", name: "K-pop", teacher: "Лисан", who: "от 9 лет", gradient: "mc" },
-    { time: "18:30", name: "Latina Lady", teacher: "Лисан", who: "от 14 лет", gradient: "mc" },
-    { time: "19:45", name: "Электро / Шафл", teacher: "Снежана", who: "взрослые", gradient: "lm" },
+    { time: "18:00", name: "Flow Art", who: "от 9 лет", gradient: "cl" },
+    { time: "20:00", name: "Electro & Shuffle", who: "взрослые", gradient: "lm" },
   ],
   Чт: [
-    { time: "10:00", name: "Фитнес", teacher: "Валерия", who: "все", gradient: "lm" },
-    { time: "15:00", name: "Dance Show", teacher: "Маргарита", who: "дети", gradient: "cl" },
-    { time: "16:30", name: "Stretching", teacher: "Маргарита", who: "от 16 лет", gradient: "cl" },
-    { time: "18:00", name: "High Heels / Strip", teacher: "Снежана", who: "от 17 лет", gradient: "lm" },
-    { time: "19:30", name: "Восточный танец", teacher: "Снежана", who: "взрослые", gradient: "lm" },
+    { time: "18:30", name: "Kids Dance", who: "от 4,5 до 6,5 лет", gradient: "lm" },
+    { time: "18:30", name: "Lady Latina", who: "взрослые", gradient: "cl" },
+    { time: "19:30", name: "High Heels", who: "взрослые", gradient: "mc" },
   ],
   Пт: [
-    { time: "09:00", name: "Baby Dance", teacher: "Снежана", who: "от 2,5 лет", gradient: "lm" },
-    { time: "15:30", name: "Street Dance", teacher: "Маргарита", who: "от 8 лет", gradient: "cl" },
-    { time: "17:00", name: "K-pop", teacher: "Лисан", who: "от 9 лет", gradient: "mc" },
-    { time: "18:30", name: "Jazz Funk", teacher: "Маргарита", who: "взрослые", gradient: "cl" },
-    { time: "19:45", name: "Latina Lady", teacher: "Лисан", who: "от 14 лет", gradient: "mc" },
+    { time: "17:30", name: "ЛФК", who: "дети", gradient: "lm" },
+    { time: "18:30", name: "ЛФК", who: "взрослые", gradient: "lm" },
   ],
   Сб: [
-    { time: "10:00", name: "Kids Dance", teacher: "Снежана", who: "дети", gradient: "lm" },
-    { time: "11:30", name: "ЛФК", teacher: "Валерия", who: "все", gradient: "lm" },
-    { time: "13:00", name: "Stretching", teacher: "Лисан", who: "от 16 лет", gradient: "mc" },
-    { time: "14:30", name: "Vogue", teacher: "Лисан", who: "от 14 лет", gradient: "mc" },
-    { time: "16:00", name: "Dance Show", teacher: "Маргарита", who: "дети", gradient: "cl" },
+    { time: "12:30", name: "Baby Dance", who: "от 2,5 лет", gradient: "lm" },
+    { time: "12:30", name: "Flow Art", who: "от 9 лет", gradient: "cl" },
+    { time: "13:30", name: "Street Dance", who: "от 10 лет", gradient: "cl" },
+    { time: "16:00", name: "Dance Show", who: "6,5–9 лет", gradient: "mc" },
+    { time: "17:00", name: "Stretching", who: "дети и взрослые", gradient: "lm" },
+    { time: "17:30", name: "K-pop", who: "дети", gradient: "mc" },
+    { time: "18:00", name: "Street Dance", who: "взрослые", gradient: "cl" },
+  ],
+  Вс: [
+    { time: "11:00", name: "Stretching", who: "дети и взрослые", gradient: "lm" },
+    { time: "11:00", name: "Street Dance", who: "взрослые", gradient: "cl" },
+    { time: "12:00", name: "Baby Dance", who: "от 2,5 лет", gradient: "lm" },
+    { time: "12:00", name: "Street Dance", who: "от 10 лет", gradient: "cl" },
+    { time: "13:00", name: "Dance Show", who: "6,5–9 лет", gradient: "mc" },
+    { time: "17:00", name: "Electro & Shuffle", who: "взрослые", gradient: "lm" },
   ],
 };
 
 const Schedule: FC = () => {
-  const router = useRouter();
   const [activeDay, setActiveDay] = useState<Day>("Пн");
   const lessons = SCHEDULE[activeDay];
 
@@ -100,7 +93,7 @@ const Schedule: FC = () => {
         <div className={styles.list} key={activeDay}>
           {lessons.map((lesson, index) => (
             <div
-              key={`${lesson.time}-${lesson.name}`}
+              key={`${lesson.time}-${lesson.name}-${lesson.who}`}
               className={styles.row}
               style={{ animationDelay: `${index * 0.04}s` }}
             >
@@ -108,25 +101,11 @@ const Schedule: FC = () => {
                 {lesson.time}
               </GradientText>
               <span className={styles.name}>{lesson.name}</span>
-              <span className={styles.teacher}>{lesson.teacher}</span>
               <span className={styles.who}>{lesson.who}</span>
-              <span className={styles.meta}>
-                {lesson.teacher} · {lesson.who}
-              </span>
-              <Button
-                size="sm"
-                className={styles.cta}
-                onClick={() => void router.push("/#contacts")}
-              >
-                Записаться
-              </Button>
+              <span className={styles.meta}>{lesson.who}</span>
             </div>
           ))}
         </div>
-
-        <p className={styles.note}>
-          * Расписание может меняться. Актуальное — в Instagram @bits_art_studio
-        </p>
       </div>
     </section>
   );

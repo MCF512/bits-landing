@@ -4,6 +4,8 @@ import { Mentor } from "@/types";
 import { GradientText, SectionLabel } from "@/shared";
 import snezha from "@images/snezha.webp";
 import lisan from "@images/lisan.webp";
+import margarita from "@images/margarita.png";
+import valeria from "@images/valeria.png";
 import styles from "./team.module.scss";
 
 const mentors: Mentor[] = [
@@ -47,6 +49,7 @@ const mentors: Mentor[] = [
     id: "t3",
     name: "Маргарита",
     role: "Педагог",
+    image: margarita,
     bio: "Педагог студии BIT'S. Специализируется на уличных стилях, шоу-программах и джазовой хореографии.",
     dirs: [
       "Street Dance",
@@ -60,6 +63,7 @@ const mentors: Mentor[] = [
     id: "t4",
     name: "Валерия",
     role: "Педагог",
+    image: valeria,
     bio: "Педагог студии BIT'S. Ведёт занятия по лечебной физической культуре и фитнесу — для здоровья тела и качества жизни.",
     dirs: ["Лечебная физическая культура", "Фитнес"],
     gradient: "lm",

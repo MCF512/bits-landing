@@ -1,9 +1,11 @@
 import React, { FC } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { routes } from "@/utils/routes";
 import { classNames } from "@/utils/classNames";
 import { Button, GradientText } from "@/shared";
+import logo from "@images/bits-logo.webp";
 import styles from "./header.module.scss";
 
 interface HeaderProps {
@@ -15,7 +17,7 @@ interface HeaderProps {
 const SOCIALS = [
   {
     label: "IG",
-    href: "https://www.instagram.com/bits_art_studio?igsh=a24zZnprb2hxczZv",
+    href: "https://www.instagram.com/bits_dance_studio",
     name: "Instagram",
   },
   {
@@ -46,7 +48,14 @@ export const Header: FC<HeaderProps> = ({ colored, menuOpen, toggleMenu }) => {
       >
         <div className={styles.inner}>
           <Link href="/#hero" className={styles.logo} onClick={closeAndNavigate}>
-            <span className={styles.logoMark}>B</span>
+            <Image
+              src={logo}
+              alt="BIT'S Dance Studio"
+              width={44}
+              height={44}
+              className={styles.logoImage}
+              priority
+            />
             <span className={styles.logoText}>
               <GradientText gradient="chrome" className={styles.logoTitle}>
                 BIT&apos;S

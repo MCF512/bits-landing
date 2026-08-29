@@ -1,13 +1,15 @@
 import React, { FC } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { routes } from "@/utils/routes";
 import { GradientText } from "@/shared";
+import logo from "@images/bits-logo.webp";
 import styles from "./footer.module.scss";
 
 const SOCIALS = [
   {
     label: "IG",
-    href: "https://www.instagram.com/bits_art_studio?igsh=a24zZnprb2hxczZv",
+    href: "https://www.instagram.com/bits_dance_studio",
   },
   {
     label: "VK",
@@ -19,7 +21,7 @@ const CONTACT_LINES = [
   "г. Речица, ул. Советская д. 66",
   "+375 (29) 319-74-52",
   "bits.dance.studio@gmail.com",
-  "@bits_art_studio",
+  "@bits_dance_studio",
 ];
 
 export const Footer: FC = () => {
@@ -29,7 +31,13 @@ export const Footer: FC = () => {
         <div className={styles.top}>
           <div>
             <div className={styles.brand}>
-              <span className={styles.brandMark}>B</span>
+              <Image
+                src={logo}
+                alt="BIT'S Dance Studio"
+                width={40}
+                height={40}
+                className={styles.brandLogo}
+              />
               <span>
                 <GradientText gradient="chrome" className={styles.brandTitle}>
                   BIT&apos;S

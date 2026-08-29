@@ -71,7 +71,7 @@
   @include uk-glass();
   border-radius: $uk-radius-soft;
   display: grid;
-  grid-template-columns: 100px 1fr 180px 100px 140px;
+  grid-template-columns: 100px 1fr auto;
   align-items: center;
   gap: 24px;
   padding: 18px 28px;
@@ -107,16 +107,6 @@
   }
 }
 
-.teacher {
-  font-family: $uk-font-body;
-  font-size: 14px;
-  color: $uk-dim;
-
-  @media (max-width: 900px) {
-    display: none;
-  }
-}
-
 .who {
   font-family: $uk-font-body;
   font-size: 12px;
@@ -124,9 +114,10 @@
   border: 1px solid $uk-lime;
   border-radius: $uk-radius-chip;
   padding: 3px 10px;
-  justify-self: start;
+  justify-self: end;
   height: fit-content;
   white-space: nowrap;
+  text-align: right;
 
   @media (max-width: 900px) {
     display: none;
@@ -143,21 +134,6 @@
   @media (max-width: 900px) {
     display: block;
   }
-}
-
-.cta {
-  justify-self: end;
-
-  @media (max-width: 900px) {
-    display: none !important;
-  }
-}
-
-.note {
-  margin-top: 24px;
-  font-family: $uk-font-body;
-  font-size: 13px;
-  color: $uk-dim2;
 }
 
 @keyframes scheduleFadeIn {
