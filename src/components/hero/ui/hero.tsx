@@ -49,10 +49,10 @@ const Hero: FC = () => {
 
           <h1 className={styles.title}>
             <GradientText gradient="chrome" className={styles.titleLine}>
-              BIT&apos;S — ЭТО ТВОЙ
+              BIT&apos;S — ЭТО ТВОЯ
             </GradientText>
             <br />
-            <span className={styles.titleAccent}>ТАНЦЕВАЛЬНЫЙ МИР</span>
+            <span className={styles.titleAccent}>ТАНЦЕВАЛЬНАЯ СЕМЬЯ</span>
           </h1>
 
           <p className={styles.lead}>

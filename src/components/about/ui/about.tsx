@@ -9,7 +9,7 @@ const ADVANTAGES = [
     gradient: "lm" as const,
     title: "Дети и взрослые",
     description:
-      "От 2,5 лет и без верхней границы. Каждый находит своё место.",
+      "Танцы для детей и взрослых. Каждый находит своё место.",
   },
   {
     gradient: "mc" as const,
