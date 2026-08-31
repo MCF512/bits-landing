@@ -80,7 +80,7 @@ const About: FC = () => {
 
             <div className={styles.stat}>
               <GradientText gradient="lm" className={styles.statValue}>
-                11+
+                14+
               </GradientText>
               <span className={styles.statLabel}>направлений танца</span>
             </div>

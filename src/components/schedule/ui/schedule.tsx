@@ -18,6 +18,7 @@ const SCHEDULE: Record<Day, Lesson[]> = {
   Пн: [
     { time: "17:30", name: "ЛФК", who: "дети", gradient: "lm" },
     { time: "18:30", name: "ЛФК", who: "взрослые", gradient: "lm" },
+    { time: "19:30", name: "Fitness", who: "взрослые", gradient: "mc" },
   ],
   Вт: [
     { time: "16:00", name: "K-pop", who: "дети", gradient: "mc" },
@@ -27,6 +28,7 @@ const SCHEDULE: Record<Day, Lesson[]> = {
   ],
   Ср: [
     { time: "18:00", name: "Flow Art", who: "от 9 лет", gradient: "cl" },
+    { time: "19:00", name: "Fire Show", who: "взрослые", gradient: "mc" },
     { time: "20:00", name: "Electro & Shuffle", who: "взрослые", gradient: "lm" },
   ],
   Чт: [
@@ -37,12 +39,15 @@ const SCHEDULE: Record<Day, Lesson[]> = {
   Пт: [
     { time: "17:30", name: "ЛФК", who: "дети", gradient: "lm" },
     { time: "18:30", name: "ЛФК", who: "взрослые", gradient: "lm" },
+    { time: "19:30", name: "Fitness", who: "взрослые", gradient: "mc" },
   ],
   Сб: [
     { time: "12:30", name: "Baby Dance", who: "от 2,5 лет", gradient: "lm" },
     { time: "12:30", name: "Flow Art", who: "от 9 лет", gradient: "cl" },
     { time: "13:30", name: "Street Dance", who: "от 10 лет", gradient: "cl" },
+    { time: "14:30", name: "Street Dance", who: "от 10 лет", gradient: "cl" },
     { time: "16:00", name: "Dance Show", who: "6,5–9 лет", gradient: "mc" },
+    { time: "16:00", name: "K-pop", who: "дети", gradient: "mc" },
     { time: "17:00", name: "Stretching", who: "дети и взрослые", gradient: "lm" },
     { time: "17:30", name: "K-pop", who: "дети", gradient: "mc" },
     { time: "18:00", name: "Street Dance", who: "взрослые", gradient: "cl" },
@@ -53,6 +58,8 @@ const SCHEDULE: Record<Day, Lesson[]> = {
     { time: "12:00", name: "Baby Dance", who: "от 2,5 лет", gradient: "lm" },
     { time: "12:00", name: "Street Dance", who: "от 10 лет", gradient: "cl" },
     { time: "13:00", name: "Dance Show", who: "6,5–9 лет", gradient: "mc" },
+    { time: "14:00", name: "Street Dance", who: "дети", gradient: "cl" },
+    { time: "14:00", name: "Stretching", who: "дети и взрослые", gradient: "lm" },
     { time: "17:00", name: "Electro & Shuffle", who: "взрослые", gradient: "lm" },
   ],
 };

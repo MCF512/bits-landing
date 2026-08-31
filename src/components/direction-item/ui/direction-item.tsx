@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import Image, { StaticImageData } from "next/image";
-import { useRouter } from "next/router";
 import {
   Dialog,
   DialogClose,
@@ -9,7 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button, GradientText } from "@/shared";
+import { GradientText } from "@/shared";
 import type { UkGradient } from "@/shared";
 import styles from "./direction-item.module.scss";
 
@@ -31,8 +30,6 @@ export const DirectionItem: FC<DirectionItemProps> = ({
   image,
   gradient,
 }) => {
-  const router = useRouter();
-
   return (
     <Dialog>
       <DialogTrigger className={styles.trigger} aria-label={title}>
@@ -59,24 +56,9 @@ export const DirectionItem: FC<DirectionItemProps> = ({
       </DialogTrigger>
 
       <DialogContent className={styles.modal} closeVisible={false}>
-        <div className={styles.modalHero}>
-          <Image
-            src={image}
-            alt={title}
-            fill
-            sizes="600px"
-            className={styles.modalImage}
-          />
-          <div
-            className={styles.modalTint}
-            data-gradient={gradient}
-            aria-hidden
-          />
-          <div className={styles.modalFade} aria-hidden />
-          <DialogClose className={styles.close} aria-label="Закрыть">
-            ✕
-          </DialogClose>
-        </div>
+        <DialogClose className={styles.close} aria-label="Закрыть">
+          ✕
+        </DialogClose>
 
         <div className={styles.modalBody}>
           <GradientText gradient={gradient} className={styles.tag}>
@@ -89,16 +71,6 @@ export const DirectionItem: FC<DirectionItemProps> = ({
           <DialogDescription className={styles.modalDesc}>
             {description}
           </DialogDescription>
-          <div className={styles.modalActions}>
-            <Button size="lg" onClick={() => void router.push("/#contacts")}>
-              Записаться
-            </Button>
-            <DialogClose asChild>
-              <Button variant="secondary" size="lg">
-                Закрыть
-              </Button>
-            </DialogClose>
-          </div>
         </div>
       </DialogContent>
     </Dialog>

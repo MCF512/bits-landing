@@ -5,18 +5,19 @@
   min-height: 100vh;
   padding-top: 62px;
   overflow: hidden;
+  background-color: #000;
 }
 
 .bg {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background-color: #050505;
+  background-color: #000;
 }
 
 .bgImage {
-  object-fit: cover;
-  object-position: center 25%;
+  object-fit: contain;
+  object-position: center center;
   filter: grayscale(100%) contrast(1.35) brightness(0.5);
 }
 
