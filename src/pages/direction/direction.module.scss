@@ -1,0 +1,42 @@
+.wrapper {
+  padding-top: 90px;
+  color: white;
+}
+
+.title {
+  text-align: center;
+  font-size: 52px;
+  font-weight: 700;
+  //color: var(--background);
+  color: #f56729;
+}
+
+.image {
+  max-width: 400px;
+  border-radius: 16px;
+}
+
+.flex {
+  display: flex;
+  gap: 20px;
+}
+
+.text {
+  font-size: 32px;
+
+  span {
+    font-weight: 700;
+    // color: var(--background);
+    color: #f56729;
+  }
+}
+
+.gallery__wrapper {
+  margin-top: 52px;
+}
+
+.video {
+  // margin: 0 auto;
+  width: 100%;
+  border-radius: 16px;
+}
