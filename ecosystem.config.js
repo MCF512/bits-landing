@@ -3,7 +3,7 @@ module.exports = {
       {
         name: 'bits-landing',
         script: 'npm',
-        args: 'start -p 4000',
+        args: 'start',
         exec_mode: 'cluster',
         instances: 'max'
       }
