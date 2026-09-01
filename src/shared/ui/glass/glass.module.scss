@@ -1,0 +1,6 @@
+@import "../../styles/tokens.scss";
+
+.glass {
+  @include uk-glass();
+  border-radius: $uk-radius-card;
+}

@@ -1,0 +1,74 @@
+@import "../../styles/tokens.scss";
+
+.button {
+  font-family: $uk-font-cond;
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  padding: 12px 24px;
+  border-radius: $uk-radius-chip;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s ease, transform 0.15s ease, background-color 0.15s ease,
+    color 0.15s ease, border-color 0.15s ease;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    transform: translateY(-2px);
+  }
+
+  &:not(:disabled):active {
+    transform: translateY(0);
+  }
+}
+
+.button_primary {
+  border: none;
+  background-color: $uk-lime;
+  color: $uk-white;
+  box-shadow: 0 4px 28px rgba(168, 85, 247, 0.35);
+
+  &:not(:disabled):hover {
+    box-shadow: 0 8px 48px rgba(224, 64, 251, 0.55);
+  }
+}
+
+.button_outline {
+  border: 1px solid $uk-lime;
+  background-color: transparent;
+  color: $uk-lime;
+}
+
+.button_ghost {
+  border: 1px solid $uk-rule;
+  background-color: transparent;
+  color: $uk-dim;
+}
+
+.button_secondary {
+  @include uk-glass(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.22));
+  color: $uk-white;
+}
+
+.button_gradient {
+  border: none;
+  background-image: uk-lm();
+  color: $uk-white;
+}
+
+.button_lg {
+  padding: 14px 32px;
+  font-size: 17px;
+}
+
+.button_sm {
+  padding: 10px 22px;
+  font-size: 15px;
+}

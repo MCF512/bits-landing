@@ -1,38 +1,94 @@
-import React, { FC } from 'react'
-import styles from './about.module.scss'
-import Image from 'next/image'
-import aboutImage from '@images/about-bg.webp'
+import React, { FC } from "react";
+import Image from "next/image";
+import { GradientText, SectionLabel } from "@/shared";
+import aboutImage from "@images/about-bg.webp";
+import styles from "./about.module.scss";
 
-interface AboutProps {
+const ADVANTAGES = [
+  {
+    gradient: "lm" as const,
+    title: "Дети и взрослые",
+    description:
+      "Танцы для детей и взрослых. Каждый находит своё место.",
+  },
+  {
+    gradient: "mc" as const,
+    title: "Живое сообщество",
+    description:
+      "Студия — не просто зал. Это команда, выступления, дружба.",
+  },
+  {
+    gradient: "cl" as const,
+    title: "Сцена и выступления",
+    description: "Регулярные концерты, конкурсы, открытые уроки.",
+  },
+];
 
-}
+const About: FC = () => {
+  return (
+    <section id="about" className={styles.section}>
+      <div className={styles.inner}>
+        <div className={styles.grid}>
+          <div className={styles.copy}>
+            <SectionLabel>О нас</SectionLabel>
+            <h2 className={styles.title}>
+              <GradientText gradient="chrome">BIT&apos;S — ЭТО ТВОЙ</GradientText>
+              <br />
+              <span className={styles.titleAccent}>ТАНЦЕВАЛЬНЫЙ МИР</span>
+            </h2>
+            <p className={styles.text}>
+              Наша цель — научить выражать свои эмоции с помощью танца, раскрыть
+              внутренний потенциал. Помочь сделать ваше тело гибким и сильным.
+              Создать пространство для детей и взрослых, объединённых идеей
+              развития и сохранения здорового, счастливого и танцевального
+              общества.
+            </p>
 
-const About: FC<AboutProps> = ({ }) => {
-    return (
-        <section id='about' className={styles.wrapper}>
-            <Image
+            <ul className={styles.advantages}>
+              {ADVANTAGES.map((item) => (
+                <li
+                  key={item.title}
+                  className={styles.advantage}
+                  data-gradient={item.gradient}
+                >
+                  <span className={styles.advantageBar} aria-hidden />
+                  <div>
+                    <GradientText
+                      gradient={item.gradient}
+                      className={styles.advantageTitle}
+                    >
+                      {item.title}
+                    </GradientText>
+                    <p className={styles.advantageText}>{item.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={styles.media}>
+            <div className={styles.photo}>
+              <Image
                 src={aboutImage}
-                alt='О студии'
-                loading='lazy'
-                fill={true}
-                objectFit='cover'
-                objectPosition='center center'
-                className='absolute'
-            />
-            <div className='container  z-10'>
-                <h2 className={styles.title}>О нас</h2>
-                <h3 className={styles.subtitle}><span>BIT’S</span> - это твой танцевальный мир</h3>
-
-                <div className={styles.flex}>
-                    <div className={styles.goal}>ЦЕЛЬ</div>
-                    <div className={styles.text}>
-                        Наша цель - научить выражать свои эмоции с помощью танца, раскрыть внутренний потенциал. Помочь сделать ваше тело гибким и сильным. Создать пространство для детей и взрослых, объединение идеей развития и сохранения здорового, счастливого и танцевального общества
-                    </div>
-                </div>
-
+                alt="Группа танцоров в зале"
+                fill
+                sizes="(max-width: 800px) 100vw, 560px"
+                className={styles.photoImage}
+              />
+              <div className={styles.photoTint} aria-hidden />
             </div>
-        </section>
-    )
-}
 
-export default About
+            <div className={styles.stat}>
+              <GradientText gradient="lm" className={styles.statValue}>
+                14+
+              </GradientText>
+              <span className={styles.statLabel}>направлений танца</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;

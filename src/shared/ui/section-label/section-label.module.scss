@@ -1,0 +1,24 @@
+@import "../../styles/tokens.scss";
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.bar {
+  width: 36px;
+  height: 2px;
+  background-image: uk-lm();
+  flex-shrink: 0;
+}
+
+.text {
+  font-family: $uk-font-body;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  @include uk-gradient-text(uk-lm());
+}

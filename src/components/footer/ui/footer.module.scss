@@ -1,0 +1,156 @@
+@import "../../../shared/styles/tokens.scss";
+
+.footer {
+  position: relative;
+  z-index: 1;
+  border-top: 2px solid $uk-rule;
+  padding: 48px 40px 32px;
+
+  @media (max-width: 800px) {
+    padding: 40px 20px 28px;
+  }
+}
+
+.inner {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid $uk-rule;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.brandLogo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brandTitle {
+  display: block;
+  font-family: $uk-font-cond;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.brandSub {
+  display: block;
+  font-family: $uk-font-body;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: $uk-dim;
+}
+
+.lead {
+  font-family: $uk-font-body;
+  font-size: 13px;
+  font-weight: 300;
+  color: $uk-dim;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  max-width: 240px;
+}
+
+.socials {
+  display: flex;
+  gap: 8px;
+}
+
+.social {
+  @include uk-glass();
+  width: 34px;
+  height: 34px;
+  border-radius: $uk-radius-soft;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $uk-font-cond;
+  font-size: 11px;
+  font-weight: 900;
+  color: $uk-dim;
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+
+  &:hover {
+    background-color: $uk-lime;
+    border-color: transparent;
+    color: $uk-white;
+  }
+}
+
+.colTitle {
+  font-family: $uk-font-cond;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  color: $uk-dim;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.navLink {
+  background: none;
+  border: none;
+  display: block;
+  font-family: $uk-font-body;
+  font-size: 14px;
+  font-weight: 300;
+  color: $uk-dim2;
+  margin: 0 0 10px;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.15s;
+
+  &:hover {
+    color: $uk-white;
+  }
+}
+
+.contactLine {
+  font-family: $uk-font-body;
+  font-size: 13px;
+  font-weight: 300;
+  color: $uk-dim2;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.bottom {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.copy {
+  font-family: $uk-font-body;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.tagline {
+  font-family: $uk-font-cond;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: $uk-lime;
+}

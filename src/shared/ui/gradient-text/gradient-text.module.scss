@@ -1,0 +1,25 @@
+@import "../../styles/tokens.scss";
+
+.text {
+  display: inline;
+}
+
+.text_lm {
+  @include uk-gradient-text(uk-lm());
+}
+
+.text_mc {
+  @include uk-gradient-text(uk-mc());
+}
+
+.text_cl {
+  @include uk-gradient-text(uk-cl());
+}
+
+.text_holo {
+  @include uk-gradient-text(uk-holo());
+}
+
+.text_chrome {
+  @include uk-gradient-text(uk-chrome());
+}

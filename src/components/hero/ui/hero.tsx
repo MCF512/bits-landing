@@ -1,115 +1,105 @@
-import React, { FC } from 'react'
-import styles from './hero.module.scss'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import Image from 'next/image'
-import { Autoplay, Pagination } from 'swiper/modules'
-import slideOneLogo from '@images/slide-one-logo.webp'
-import { useResize } from '@/utils/useResize'
-import { classNames } from '@/utils/classNames'
-import firstSlideBgImage from '@images/slide-one.webp'
-import firstSlideBgImageMobile from '@images/slide-one-mobile.webp'
-import secondSlideBgImage from '@images/slide-two.webp'
-import thirdSlideBgImage from '@images/slide-three.webp'
+import React, { FC } from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { Button, GradientText } from "@/shared";
+import heroBg from "@images/hero-background-2.png";
+import styles from "./hero.module.scss";
+
+const CHIPS = [
+  { label: "Baby Dance", age: "2,5+", gradient: "lm" as const },
+  { label: "Kids Show", age: "4+", gradient: "mc" as const },
+  { label: "K-pop", age: "9+", gradient: "cl" as const },
+  { label: "Lady Dance", age: "17+", gradient: "lm" as const },
+  { label: "Street Dance", age: "8+", gradient: "mc" as const },
+  { label: "Kids Plastic", age: "6+", gradient: "cl" as const },
+  { label: "Flow Art", age: "6+", gradient: "lm" as const },
+  { label: "Stretching", age: "16+", gradient: "mc" as const },
+];
+
+const TICKER =
+  "BABY DANCE ✦ KIDS DANCE ✦ K-POP ✦ LADY DANCE ✦ LADY LATINA ✦ STREET DANCE ✦ DANCE SHOW ✦ KIDS PLASTIC ✦ FLOW ART ✦ FIRE SHOW ✦ STRETCHING ✦ HIGH HEELS ✦ ELECTRO & SHUFFLE ✦ SOLO ✦ LATINA DUET ✦ LFK ✦ BIT'S DANCE STUDIO ✦ ";
 
 const Hero: FC = () => {
-  const sizes = useResize();
-  const isMobile = (sizes?.width ?? 0) < 801
+  const router = useRouter();
+
   return (
-    <div className=''>
-      <Swiper
-        className={styles.swiper}
-        modules={[Autoplay, Pagination]}
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 10000 }}
-        loop={true}
-        slidesPerView={1}
-        onAutoplayTimeLeft={() => { }}
-      >
-        <SwiperSlide className={styles.slide}>
-          <div className={styles.slide_wrapper}>
+    <>
+      <section id="hero" className={styles.hero}>
+        <div className={styles.bg}>
+          <Image
+            src={heroBg}
+            alt="Студия танцев BIT'S"
+            fill
+            priority
+            sizes="100vw"
+            className={styles.bgImage}
+          />
+          <div className={styles.bgTint} />
+          <div className={styles.bgFade} />
+          <div className={styles.frame} aria-hidden />
+        </div>
 
-            <Image
-              src={isMobile ? firstSlideBgImageMobile : firstSlideBgImage}
-              alt='Студия танцев BIT`s'
-              className={styles.slide_bg}
-              fill={true}
-              objectFit='cover'
-              objectPosition='center center'
-              priority
-            />
-            <Image
-              width={0}
-              height={0}
-              alt='Лого студии'
-              src={slideOneLogo}
-              className={styles.image_logo}
-            />
+        <div className={styles.content}>
+          <div className={styles.location}>
+            <span className={styles.locationDot} />
+            <span className={styles.locationText}>
+              РЕЧИЦА, БЕЛАРУСЬ · СТУДИЯ ТАНЦЕВ
+            </span>
           </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles.slide_wrapper}>
-            <Image
-              src={secondSlideBgImage}
-              alt='Студия танцев BIT`s'
-              className={styles.slide_bg}
-              fill={true}
-              objectFit='cover'
-              objectPosition='center center'
-              loading="lazy"
-            />
 
-            <div className={classNames(styles.info, { [styles.info_two]: true })}>
-              <div className={styles.group}>
-                Baby Dance <span>от 2,5 лет</span>
-              </div>
-              <div className={styles.group}>
-                Kids Show <span>от 4 лет</span>
-              </div>
-              <div className={styles.group}>
-                K-pop <span>от 9 лет</span>
-              </div>
-              <div className={styles.group}>
-                Lady Dance <span>от 17 лет</span>
-              </div>
-            </div>
+          <h1 className={styles.title}>
+            <GradientText gradient="chrome" className={styles.titleLine}>
+              BIT&apos;S — ЭТО ТВОЯ
+            </GradientText>
+            <br />
+            <span className={styles.titleAccent}>ТАНЦЕВАЛЬНАЯ СЕМЬЯ</span>
+          </h1>
+
+          <p className={styles.lead}>
+            Уроки танцев в Речице для детей и взрослых. От 2,5 лет до&nbsp;∞.
+          </p>
+
+          <div className={styles.ctas}>
+            <Button size="lg" onClick={() => void router.push("/#contacts")}>
+              Записаться на занятие
+            </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              onClick={() => void router.push("/#directions")}
+            >
+              Смотреть направления
+            </Button>
           </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles.slide_wrapper}>
 
-            <Image
-              src={thirdSlideBgImage}
-              alt='Студия танцев BIT`s'
-              className={styles.slide_bg}
-              fill={true}
-              objectFit='cover'
-              objectPosition='center center'
-              loading="lazy"
-            />
-
-            <div className={classNames(styles.info, { [styles.info_three]: true })}>
-              <div className={styles.group}>
-                Street dance <span>от 8 лет</span>
+          <div className={styles.chips}>
+            {CHIPS.map((chip) => (
+              <div key={chip.label} className={styles.chip}>
+                <GradientText
+                  gradient={chip.gradient}
+                  className={styles.chipLabel}
+                >
+                  {chip.label}
+                </GradientText>
+                <span className={styles.chipAge}>{chip.age}</span>
               </div>
-              <div className={styles.group}>
-                Kids Plastic <span>от 6 лет</span>
-              </div>
-              <div className={styles.group}>
-                Flow Art <span>от 6 лет</span>
-              </div>
-              <div className={styles.group}>
-                Stretching <span>от 16 лет</span>
-              </div>
-            </div>
+            ))}
           </div>
-        </SwiperSlide>
+        </div>
 
-        {/* <div className={styles.bar_wrapper}>
-          <div className={styles.autoplay_bar}></div>
-        </div> */}
-      </Swiper>
-    </div>
-  )
-}
+        <div className={styles.scrollHint} aria-hidden>
+          <span>SCROLL</span>
+          <div className={styles.scrollLine} />
+        </div>
+      </section>
+
+      <div className={styles.ticker} aria-hidden>
+        <span className={styles.tickerTrack}>
+          {Array.from({ length: 10 }, () => TICKER).join("")}
+        </span>
+      </div>
+    </>
+  );
+};
 
 export default Hero;

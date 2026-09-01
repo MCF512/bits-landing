@@ -7,6 +7,7 @@ const Hero = dynamic(() => import('@/components/hero'), { ssr: false })
 const About = dynamic(() => import('@/components/about'), { ssr: false })
 const Team = dynamic(() => import('@/components/team'), { ssr: false })
 const Directions = dynamic(() => import('@/components/directions'), { ssr: false })
+const Schedule = dynamic(() => import('@/components/schedule'), { ssr: false })
 const Contacts = dynamic(() => import('@/components/contacts'), { ssr: false })
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
             <About />
             <Team />
             <Directions />
+            <Schedule />
             <Contacts />
         </div>
     );

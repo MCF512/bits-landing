@@ -1,8 +1,12 @@
 import { StaticImageData } from "next/image";
+import type { UkGradient } from "@/shared";
 
 export interface Mentor {
-    name: string,
-    surname: string,
-    image: string | StaticImageData ,
-    about: string
+  id: string;
+  name: string;
+  role: string;
+  image?: string | StaticImageData;
+  bio: string;
+  dirs: string[];
+  gradient: UkGradient;
 }

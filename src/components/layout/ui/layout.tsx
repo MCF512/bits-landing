@@ -1,10 +1,8 @@
-
-import { FC, ReactNode, useEffect, useRef, useState } from 'react'
+import { FC, ReactNode, useRef, useState } from 'react'
 
 import styles from './layout.module.scss'
 import { Header } from '@/components/header/ui/header'
-import { useResize } from '@/utils/useResize'
-import { classNames } from '@/utils/classNames'
+import { Footer } from '@/components/footer'
 
 interface LayoutProps {
   children: ReactNode
@@ -15,17 +13,22 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
   const [openMenu, setOpenMenu] = useState(false)
   const layoutRef = useRef<HTMLDivElement>(null)
 
-  const toggleMenu = () => {
-    setOpenMenu(!openMenu)
-  }
-
   return (
-    <div ref={layoutRef} data-open={openMenu} className={styles.layout}
-      onScroll={(e) => setHeaderColored((e.target as HTMLDivElement).scrollTop !== 0)}
+    <div
+      ref={layoutRef}
+      data-open={openMenu}
+      className={styles.layout}
+      onScroll={(e) =>
+        setHeaderColored((e.target as HTMLDivElement).scrollTop !== 0)
+      }
     >
-      <Header colored={headerColored} menuOpen={openMenu} toggleMenu={() => setOpenMenu(!openMenu)}/>
+      <Header
+        colored={headerColored}
+        menuOpen={openMenu}
+        toggleMenu={() => setOpenMenu(!openMenu)}
+      />
       <main className={styles.main}>{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

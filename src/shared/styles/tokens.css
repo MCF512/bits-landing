@@ -1,0 +1,40 @@
+:root {
+  --uk-bg: #0e0e0e;
+  --uk-surf: #161616;
+  --uk-surf2: #1e1e1e;
+  --uk-white: #ffffff;
+  --uk-dim: rgba(255, 255, 255, 0.45);
+  --uk-dim2: rgba(255, 255, 255, 0.15);
+  --uk-rule: rgba(255, 255, 255, 0.1);
+  --uk-lime: #a855f7;
+  --uk-mag: #e040fb;
+  --uk-cyan: #00e5ff;
+
+  --uk-grad-lm: linear-gradient(110deg, #a855f7 0%, #e040fb 100%);
+  --uk-grad-mc: linear-gradient(110deg, #e040fb 0%, #00e5ff 100%);
+  --uk-grad-cl: linear-gradient(110deg, #00e5ff 0%, #a855f7 100%);
+  --uk-grad-holo: linear-gradient(
+    135deg,
+    #e040fb,
+    #00e5ff,
+    #a78bfa,
+    #a855f7,
+    #e040fb
+  );
+  --uk-grad-chrome: linear-gradient(
+    160deg,
+    #fff 0%,
+    #c0c0c0 35%,
+    #fff 55%,
+    #888 100%
+  );
+
+  --uk-radius-sharp: 0;
+  --uk-radius-soft: 4px;
+  --uk-radius-card: 8px;
+  --uk-radius-chip: 40px;
+  --uk-radius-circle: 9999px;
+
+  --uk-font-cond: "Barlow Condensed", Impact, sans-serif;
+  --uk-font-body: "DM Sans", system-ui, sans-serif;
+}
