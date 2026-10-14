@@ -18,7 +18,7 @@ const SCHEDULE: Record<Day, Lesson[]> = {
   Пн: [
     { time: "17:30", name: "ЛФК", who: "дети", gradient: "lm" },
     { time: "18:30", name: "ЛФК", who: "взрослые", gradient: "lm" },
-    { time: "19:30", name: "Fitness", who: "взрослые", gradient: "mc" },
+    { time: "19:30", name: "Лимфодренаж", who: "взрослые", gradient: "mc" },
   ],
   Вт: [
     { time: "16:00", name: "K-pop", who: "дети", gradient: "mc" },
@@ -39,7 +39,7 @@ const SCHEDULE: Record<Day, Lesson[]> = {
   Пт: [
     { time: "17:30", name: "ЛФК", who: "дети", gradient: "lm" },
     { time: "18:30", name: "ЛФК", who: "взрослые", gradient: "lm" },
-    { time: "19:30", name: "Fitness", who: "взрослые", gradient: "mc" },
+    { time: "19:30", name: "Лимфодренаж", who: "взрослые", gradient: "mc" },
   ],
   Сб: [
     { time: "12:30", name: "Baby Dance", who: "от 2,5 лет", gradient: "lm" },

@@ -74,20 +74,6 @@ export const TeamCard: FC<Mentor> = ({
           className={styles.modal}
           closeVisible={false}
         >
-          <div className={styles.modalPhoto}>
-            {image ? (
-              <Image
-                src={image}
-                alt={name}
-                fill
-                sizes="(max-width: 800px) 100vw, 240px"
-                className={styles.modalPhotoImage}
-              />
-            ) : (
-              <span className={styles.photoFallback}>{initials}</span>
-            )}
-          </div>
-
           <div className={styles.modalBody}>
             <div className={styles.modalHeader}>
               <div>
